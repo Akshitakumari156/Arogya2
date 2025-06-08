@@ -24,6 +24,7 @@ const AuthPage = () => {
       if (isSignup) {
         await firebase.SignupUserWithEmailandPassword(email, password);
         alert("✅ Account created successfully!");
+        navigate("/");
       } else {
         const response=await firebase.LoginUserWithEmailandPassword(email, password);
         alert("✅ Logged in successfully!");
@@ -39,6 +40,7 @@ const AuthPage = () => {
     try {
       await firebase.SignInWithGoogle();
       alert("✅ Google sign-in successful!");
+      navigate("/");
     } catch (error) {
       alert("❌ " + error.message);
     }
@@ -48,6 +50,7 @@ const AuthPage = () => {
     try {
       await firebase.SignInWithFacebook();
       alert("✅ Facebook sign-in successful!");
+      navigate("/");
     } catch (error) {
       alert("❌ " + error.message);
     }
